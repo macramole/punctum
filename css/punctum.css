@@ -99,6 +99,7 @@ div.sub label {
 }
 #mainSection .imgWrapper img {
   height: 100%;
+  cursor: crosshair;
 }
 @-moz-keyframes aparecer {
   from {
