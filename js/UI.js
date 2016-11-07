@@ -5,6 +5,10 @@ var UI = {
 
     currentSlide : 0,
 
+    startTime : null,
+
+    data : [],
+
     loadUI : function () {
         // loadSliders();
         UI.loadImages();
@@ -47,18 +51,48 @@ var UI = {
                 if ( UI.currentSlide + 1 < UI.IMAGES_CANT ) {
                     $.fn.fullpage.moveSlideRight();
                     UI.currentSlide++;
+                    UI.addData();
                 } else {
                     $.fn.fullpage.moveSectionDown();
+                    UI.finish();
                 }
             }
         });
 
         $("#btnStart").click(function() {
             $.fn.fullpage.moveSectionDown();
+
+            UI.addData();
         });
     },
 
+    finish : function() {
+        var jsonSend = {
+            
+        };
+    },
+
+    addData : function(x, y) {
+        if (!x) {
+            UI.data[UI.currentSlide] = {
+                "punctums" : []
+            }
+        } else {
+            var endTime = new Date().getTime();
+
+            UI.data[UI.currentSlide].punctums.push({
+                "x" : x,
+                "y" : y,
+                "time" : endTime - UI.startTime
+            });
+        }
+        UI.startTime = new Date().getTime();
+        // console.log(UI.data);
+    },
+
     addPunctum : function(x,y) {
+        UI.addData(x,y);
+
         $punctum = $("<div class='punctum'></div>");
         $punctum.css({
             "left" : x - UI.PUNCTUM_SIZE / 2,
