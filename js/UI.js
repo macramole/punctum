@@ -1,5 +1,5 @@
 var UI = {
-    IMAGES_CANT : 9,
+    IMAGES_CANT : 9, //9
     IMAGES_FOLDER : "images/main/",
     PUNCTUM_SIZE : 30,
 
@@ -53,23 +53,43 @@ var UI = {
                     UI.currentSlide++;
                     UI.addData();
                 } else {
-                    $.fn.fullpage.moveSectionDown();
-                    UI.finish();
+                    UI.finish( function() {
+                        $.fn.fullpage.moveSectionDown();
+                    } );
                 }
             }
         });
 
         $("#btnStart").click(function() {
+            // UI.setLoadingButton( $(this) );
             $.fn.fullpage.moveSectionDown();
 
             UI.addData();
         });
     },
 
-    finish : function() {
+    finish : function(callback) {
+        var datosPersonales = {};
+
+        for ( dato of $("#frmDatosSujeto").serializeArray() ) {
+            datosPersonales[ dato.name ] = dato.value;
+        }
+
         var jsonSend = {
-            
+            "datosPersonales" : datosPersonales,
+            "datosExperimentos" : UI.data
         };
+
+        // console.log(jsonSend);
+
+        $.get("data.php", jsonSend, function(data) {
+            callback();
+        });
+    },
+
+    setLoadingButton : function($button) {
+        // $button.html("<img src='images/ajax-loader.svg'>");
+        // $button.addClass("ajax");
     },
 
     addData : function(x, y) {
@@ -91,7 +111,9 @@ var UI = {
     },
 
     addPunctum : function(x,y) {
-        UI.addData(x,y);
+        var $imgWrapper = $(".imgWrapper").eq(UI.currentSlide);
+        var realX = Math.round( x - $("img", $imgWrapper).offset().left );
+        UI.addData(realX,y);
 
         $punctum = $("<div class='punctum'></div>");
         $punctum.css({
@@ -99,7 +121,7 @@ var UI = {
             "top" : y - UI.PUNCTUM_SIZE / 2
         });
 
-        $(".imgWrapper").eq(UI.currentSlide).append($punctum);
+        $imgWrapper.append($punctum);
     },
 
     reset : function() {
