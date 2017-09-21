@@ -13,12 +13,12 @@
     $lang["formNationality"] = "Nationalidad";
 
     $lang["formEducation"] = "Educación";
-        $lang["formEducation_1"] = "Primaria"
-        $lang["formEducation_2"] = "Secundaria"
-        $lang["formEducation_3"] = "Terciario"
-        $lang["formEducation_4"] = "Universitario"
-        $lang["formEducation_5"] = "Master"
-        $lang["formEducation_6"] = "Doctorado"
+        $lang["formEducation_1"] = "Primaria";
+        $lang["formEducation_2"] = "Secundaria";
+        $lang["formEducation_3"] = "Terciario";
+        $lang["formEducation_4"] = "Universitario";
+        $lang["formEducation_5"] = "Master";
+        $lang["formEducation_6"] = "Doctorado";
 
     $lang["formCareer"] = "Trabajo / Profesión";
     $lang["formLanguagesSpokenNative"] = "Idioma nativo";
