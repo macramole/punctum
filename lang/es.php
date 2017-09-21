@@ -1,37 +1,32 @@
 <?php
     $lang = array();
 
-    $lang["formName"] = "Full Name";
-    $lang["formAge"] = "Age";
-    $lang["formGender"] = "Gender";
-    $lang["formLocation"] = "Location";
-    $lang["formNationality"] = "Nationality";
-        $lang["formEducation"] = "Education";
-        $lang["formEducation_1"] = "Primary";
-        $lang["formEducation_2"] = "Currently in High School";
-        $lang["formEducation_3"] = "Secondary/High School Graduate";
-        $lang["formEducation_4"] = "Associate in progress";
-        $lang["formEducation_5"] = "Associate Degree";
-        $lang["formEducation_6"] = "Bachelor in progress";
-        $lang["formEducation_7"] = "Bachelor's or equivalent";
-        $lang["formEducation_8"] = "Master in progress";
-        $lang["formEducation_9"] = "Master's or equivalent";
-        $lang["formEducation_10"] = "Doctorate in progress";
-        $lang["formEducation_11"] = "Doctoral or equivalent";
-    $lang["formAreaOfStudy"] = "Area of Study";
-    $lang["formCareer"] = "Career/Job";
-    $lang["formCulturalBackground"] = "Cultural Background – where is your family from?";
-    $lang["formReligion"] = "Religion";
-    $lang["formLanguagesSpoken"] = "Languages Spoken";
-        $lang["formLanguagesSpokenNative"] = "- Native language";
-        $lang["formLanguagesOthers"] = "- Others";
-    $lang["formPeopleLiving"] = "How many people do you live with?";
-        $lang["formPeopleLivingRelationship"] = "- Relationship with these people";
-    $lang["formMaritalstatus"] = "Marital status";
-    $lang["formStart"] = "Start";
+    $lang["formName"] = "Nombre Completo";
+    $lang["formAge"] = "Edad";
 
-    $lang["instructions"] = "Select at least one of (what you feel are) the most interesting points on the following image.";
-    $lang["next"] = "Next";
-    $lang["thanks"] = "Thank you for your participation!";
+    $lang["formGender"] = "Género";
+        $lang["formGenderMasc"] = "Masculino";
+        $lang["formGenderFem"] = "Femenino";
+        $lang["formGenderOther"] = "Otro";
+
+    $lang["formLocation"] = "Ciudad de Residencia";
+    $lang["formNationality"] = "Nationalidad";
+
+    $lang["formEducation"] = "Educación";
+        $lang["formEducation_1"] = "Primaria"
+        $lang["formEducation_2"] = "Secundaria"
+        $lang["formEducation_3"] = "Terciario"
+        $lang["formEducation_4"] = "Universitario"
+        $lang["formEducation_5"] = "Master"
+        $lang["formEducation_6"] = "Doctorado"
+
+    $lang["formCareer"] = "Trabajo / Profesión";
+    $lang["formLanguagesSpokenNative"] = "Idioma nativo";
+
+    $lang["formStart"] = "Empezar";
+
+    $lang["instructions"] = "Seleccione al menos uno o más puntos que usted crea interesantes en las siguientes imágenes:";
+    $lang["next"] = "Siguiente";
+    $lang["thanks"] = "Gracias por participar!";
 
 ?>

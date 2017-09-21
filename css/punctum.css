@@ -39,6 +39,9 @@ button.ajax,
   background-color: #1997c6;
   color: #fff;
 }
+.invalidForm {
+  box-shadow: 0 0 0px 2px #cc0505 inset !important;
+}
 input,
 select {
   background-color: #434857;
@@ -50,7 +53,7 @@ select {
   color: #fff;
   font-size: 16px;
   font-weight: 300;
-  line-height: 25.6px;
+  line-height: 26px;
   font-family: inherit;
   padding: 6px 15px 6px 15px;
   margin-bottom: 4em;
@@ -80,6 +83,15 @@ div.sub label {
   z-index: 100;
   background-color: rgba(37,40,48,0.7);
   padding: 10px 0;
+  opacity: 1;
+  transition: opacity 10s;
+}
+#mainSection h2.dissapear {
+  opacity: 0;
+}
+#mainSection h2:hover {
+  opacity: 1 !important;
+  transition: none;
 }
 #mainSection button {
   position: absolute;

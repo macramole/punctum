@@ -9,6 +9,8 @@ var UI = {
 
     data : [],
 
+    DEBUG_MODE : false,
+
     loadUI : function () {
         // loadSliders();
         UI.loadImages();
@@ -23,7 +25,17 @@ var UI = {
     },
 
     loadImages : function() {
+        var imageIndexes = [];
+
         for ( var i = 1 ; i <= UI.IMAGES_CANT ; i++ ) {
+            imageIndexes.push(i);
+        }
+
+        shuffle(imageIndexes);
+
+        for ( var j = 0 ; j < UI.IMAGES_CANT ; j++ ) {
+            var i = imageIndexes[j];
+
             $div = $("<div class='slide'></div>");
 
             $imgWrapper = $("<div class='imgWrapper'></div>");
@@ -61,11 +73,47 @@ var UI = {
         });
 
         $("#btnStart").click(function() {
-            // UI.setLoadingButton( $(this) );
-            $.fn.fullpage.moveSectionDown();
+            if ( UI.validateInput( $("#frmDatosSujeto input, #frmDatosSujeto select") ) ) {
+                // UI.setLoadingButton( $(this) );
+                $.fn.fullpage.moveSectionDown();
 
-            UI.addData();
+                UI.addData();
+                setTimeout(function(){
+                    $("#mainSection h2").addClass("dissapear");
+                }, 3000);
+            }
         });
+    },
+
+    validateInput: function(elemsToValidate) {
+
+      if (UI.DEBUG_MODE) {
+        return true;
+      }
+      var isFormValid = false;
+      var validInputs = 0;
+
+      for (var i in elemsToValidate) {
+        // var node = $("#" + elemsToValidate[i]);
+        var node = elemsToValidate.eq(i);
+
+        if ( node.length < 1 ) {
+            continue;
+        }
+
+        if (node[0].value === '-1' || node[0].value === '' || parseInt(node[0].value) < 0) {
+          node.addClass("invalidForm");
+        } else {
+          validInputs++;
+          node.removeClass("invalidForm");
+        }
+      }
+
+      if (validInputs === elemsToValidate.length) {
+        isFormValid = true;
+      }
+
+      return isFormValid;
     },
 
     finish : function(callback) {
@@ -94,7 +142,10 @@ var UI = {
 
     addData : function(x, y) {
         if (!x) {
+            var srcImage = $("#mainSection img").eq(UI.currentSlide).attr("src");
+
             UI.data[UI.currentSlide] = {
+                "imagen" : srcImage,
                 "punctums" : []
             }
         } else {

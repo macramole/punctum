@@ -39,6 +39,10 @@ button, .button {
     }
 }
 
+.invalidForm{
+  box-shadow:0 0 0px 2px #cc0505 inset !important; //este important lo puse porque sino la clase no se aplica a los inputs(si a los selects)
+}
+
 input, select {
     background-color: #434857;
     width: 100%;
@@ -49,7 +53,7 @@ input, select {
     color: #fff;
     font-size: 16px;
     font-weight: 300;
-    line-height: 25.6px;
+    line-height: 26px;
     font-family: inherit;
     padding: 6px 15px 6px 15px;
     margin-bottom: 4em;
@@ -82,7 +86,18 @@ div.sub {
         z-index: 100;
         background-color: rgba(37, 40, 48, 0.7);
         padding: 10px 0;
+        opacity: 1;
 
+        transition: opacity 10s;
+
+        &.dissapear {
+            opacity: 0;
+        }
+
+        &:hover {
+            opacity: 1 !important;
+            transition: none;
+        }
     }
 
     button {

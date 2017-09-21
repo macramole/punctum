@@ -32,7 +32,12 @@
                         </li>
                         <li>
                             <label><?= $lang["formGender"] ?></label>
-                            <input name="gender" type="text" />
+                            <select name="gender">
+                                <option></option>
+                                <option><?= $lang["formGenderMasc"] ?></option>
+                                <option><?= $lang["formGenderFem"] ?></option>
+                                <option><?= $lang["formGenderOther"] ?></option>
+                            </select>
                         </li>
                         <li>
                             <label><?= $lang["formLocation"] ?></label>
@@ -303,53 +308,17 @@
                                 <option><?= $lang["formEducation_4"] ?></option>
                                 <option><?= $lang["formEducation_5"] ?></option>
                                 <option><?= $lang["formEducation_6"] ?></option>
-                                <option><?= $lang["formEducation_7"] ?></option>
-                                <option><?= $lang["formEducation_8"] ?></option>
-                                <option><?= $lang["formEducation_9"] ?></option>
-                                <option><?= $lang["formEducation_10"] ?></option>
-                                <option><?= $lang["formEducation_11"] ?></option>
                             </select>
 
-                        </li>
-                        <li>
-                            <label><?= $lang["formAreaOfStudy"] ?></label>
-                            <input name="areaofstudy" type="text" />
                         </li>
                         <li>
                             <label><?= $lang["formCareer"] ?></label>
                             <input name="careerjob" type="text" />
                         </li>
-                        <li>
-                            <label><?= $lang["formCulturalBackground"] ?></label>
-                            <input name="culturalbackground" type="text" />
-                        </li>
-                        <li>
-                            <label><?= $lang["formReligion"] ?></label>
-                            <input name="religion" type="text" />
-                        </li>
 
                         <li>
-                            <label><?= $lang["formLanguagesSpoken"] ?></label>
-                            <div class="sub">
-                                <label class="sub"><?= $lang["formLanguagesSpokenNative"] ?></label>
-                                <input name="nativelanguage" type="text" />
-                                <label class="sub"><?= $lang["formLanguagesOthers"] ?></label>
-                                <input name="otherlanguage" type="text" />
-                            </div>
-                        </li>
-                        <li>
-                            <label><?= $lang["formPeopleLiving"] ?></label>
-                            <input name="peoplelive" type="text" />
-                            <div class="sub">
-                                <label><?= $lang["formPeopleLivingRelationship"] ?></label>
-                                <input name="peoplerelation" type="text" />
-                            </div>
-                        </li>
-                        <li>&nbsp;</li>
-                        <li>&nbsp;</li>
-                        <li>
-                            <label><?= $lang["formMaritalstatus"] ?></label>
-                            <input name="maritalstatus" type="text" />
+                            <label><?= $lang["formLanguagesSpokenNative"] ?></label>
+                            <input name="language" type="text" />
                         </li>
                     </ul>
                 </form>
