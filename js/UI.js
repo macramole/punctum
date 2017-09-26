@@ -9,7 +9,7 @@ var UI = {
 
     data : [],
 
-    DEBUG_MODE : true,
+    DEBUG_MODE : false,
 
     windowResized : function() {
         var $currentWrapper = $(".imgWrapper").eq(UI.currentSlide);
