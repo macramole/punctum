@@ -9,7 +9,15 @@ var UI = {
 
     data : [],
 
-    DEBUG_MODE : false,
+    DEBUG_MODE : true,
+
+    windowResized : function() {
+        var $currentWrapper = $(".imgWrapper").eq(UI.currentSlide);
+        var $page = $currentWrapper.parent();
+        var $img = $("img", $currentWrapper);
+
+        $img.css("height", $(window).height());
+    },
 
     loadUI : function () {
         // loadSliders();
@@ -22,6 +30,9 @@ var UI = {
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
         $.fn.fullpage.setAllowScrolling(false);
+
+        $(window).resize( UI.windowResized );
+        UI.windowResized();
     },
 
     loadImages : function() {
@@ -89,7 +100,7 @@ var UI = {
 
       if (UI.DEBUG_MODE) {
         return true;
-      }
+        }
       var isFormValid = false;
       var validInputs = 0;
 
