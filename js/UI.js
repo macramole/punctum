@@ -12,9 +12,9 @@ var UI = {
     DEBUG_MODE : false,
 
     windowResized : function() {
-        var $currentWrapper = $(".imgWrapper").eq(UI.currentSlide);
-        var $page = $currentWrapper.parent();
-        var $img = $("img", $currentWrapper);
+        // var $currentWrapper = $(".imgWrapper").eq(UI.currentSlide);
+        // var $page = $currentWrapper.parent();
+        var $img = $(".imgWrapper img");
 
         $img.css("height", $(window).height());
     },
@@ -68,7 +68,7 @@ var UI = {
         $("#btnNext").click(function() {
             var $currentWrapper = $(".imgWrapper").eq(UI.currentSlide);
 
-            if ( $(".punctum", $currentWrapper).length == 0 ) {
+            if ( $(".punctum", $currentWrapper).length == 0 && !UI.DEBUG_MODE ) {
                 alert("Please select at least one interesting point")
             } else {
                 if ( UI.currentSlide + 1 < UI.IMAGES_CANT ) {
@@ -152,6 +152,10 @@ var UI = {
     },
 
     addData : function(x, y) {
+        if ( UI.DEBUG_MODE ) {
+            return;
+        }
+
         if (!x) {
             var srcImage = $("#mainSection img").eq(UI.currentSlide).attr("src");
 
