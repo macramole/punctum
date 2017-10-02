@@ -178,8 +178,13 @@ var UI = {
 
     addPunctum : function(x,y) {
         var $imgWrapper = $(".imgWrapper").eq(UI.currentSlide);
-        var realX = Math.round( x - $("img", $imgWrapper).offset().left );
-        UI.addData(realX,y);
+        var $img = $("img", $imgWrapper);
+        var realX = Math.round( x - $img.offset().left );
+
+        var stdX = realX / $img.width();
+        var stdY = y / $img.height();
+
+        UI.addData(stdX,stdY);
 
         $punctum = $("<div class='punctum'></div>");
         $punctum.css({
